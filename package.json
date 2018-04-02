@@ -1,0 +1,61 @@
+{
+  "name": "pmv-sim",
+  "version": "0.0.1",
+  "description": "pmv simulator",
+  "homepage": "https://github.com/codejamninja/pmv-sim",
+  "author": {
+    "name": "Jam Risser",
+    "email": "jam@jamrizzi.com",
+    "url": "https://codejamninja.com"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint ./",
+    "lint:fix": "eslint --fix ./",
+    "build": "npm run clean && babel src -d lib",
+    "clean": "rm -rf lib",
+    "prepublish": "npm run build",
+    "start": "parcel src/index.html"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "matter-js": "^0.14.1",
+    "parcel-bundler": "^1.7.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.9.0"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/codejamninja/pmv-sim",
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "4"
+          }
+        }
+      ],
+      "stage-2"
+    ]
+  },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "eslintIgnore": [
+    "lib"
+  ]
+}
