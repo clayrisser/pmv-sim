@@ -49,3 +49,4 @@ idea/
 # Application
 lib/
 /.cache
+/dist

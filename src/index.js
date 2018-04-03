@@ -1,13 +1,20 @@
 import 'babel-polyfill';
-import { Engine, Render, Bodies, World } from 'matter-js';
+import React from 'react';
+import _ from 'lodash';
+import { Engine, Render, World } from 'matter-js';
+import { render } from 'react-dom';
+import Controls from './controls';
+import items from './items';
 
 const engine = Engine.create();
-const render = Render.create({
-  element: document.getElementById('app'),
+const renderer = Render.create({
+  // eslint-disable-next-line no-undef
+  element: document.getElementById('engine'),
   engine
 });
-const ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true });
-const box = Bodies.rectangle(400, 200, 80, 80);
-World.add(engine.world, [box, ground]);
+World.add(engine.world, _.map(items, item => item));
 Engine.run(engine);
-Render.run(render);
+Render.run(renderer);
+
+// eslint-disable-next-line no-undef
+render(<Controls items={items} />, document.getElementById('controls'));
