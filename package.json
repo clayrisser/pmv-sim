@@ -9,15 +9,16 @@
     "url": "https://codejamninja.com"
   },
   "main": "lib/index.js",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "lint": "eslint ./",
     "lint:fix": "eslint --fix ./",
-    "build": "npm run clean && parcel build -d docs src/index.html",
     "clean": "rm -rf lib",
     "prepublish": "npm run build",
     "start": "npm run lint && parcel -p 8888 src/index.html",
-    "start:wireframe": "npm run lint && parcel -p 8888 src/index.html"
+    "build": "npm run clean && npm run lint && parcel build -d docs --public-url ./ src/index.html"
   },
   "dependencies": {
     "autobind-decorator": "^2.1.0",
@@ -60,10 +61,18 @@
       "react",
       "stage-2"
     ],
-    "plugins": ["transform-decorators-legacy", "transform-class-properties"]
+    "plugins": [
+      "transform-decorators-legacy",
+      "transform-class-properties"
+    ]
   },
   "engines": {
     "node": ">= 4.0.0"
   },
-  "eslintIgnore": ["lib", ".cache", "dist"]
+  "eslintIgnore": [
+    "lib",
+    ".cache",
+    "dist",
+    "docs"
+  ]
 }
