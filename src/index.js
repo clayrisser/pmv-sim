@@ -3,6 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 import { Engine, Render, World } from 'matter-js';
 import { render } from 'react-dom';
+import './style.scss';
 import Controls from './controls';
 import items from './items';
 import { WIDTH, HEIGHT } from './constants';
