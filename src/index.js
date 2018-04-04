@@ -5,12 +5,19 @@ import { Engine, Render, World } from 'matter-js';
 import { render } from 'react-dom';
 import Controls from './controls';
 import items from './items';
+import { WIDTH, HEIGHT } from './constants';
 
 const engine = Engine.create();
 const renderer = Render.create({
   // eslint-disable-next-line no-undef
   element: document.getElementById('engine'),
-  engine
+  engine,
+  options: {
+    width: WIDTH,
+    height: HEIGHT,
+    showAngleIndicator: false,
+    wireframes: false
+  }
 });
 World.add(engine.world, _.map(items, item => item));
 Engine.run(engine);
